@@ -1,0 +1,75 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <h2 class="text-center">Registro</h2>
+        <form #newUserForm="ngForm" (ngSubmit)='onSubmit(newUserForm)'>
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="userService.selectedUser.$key">
+            <div class="form-group">
+                <label for="name">Nombre</label>
+                <input class="form-control" #name="ngModel" type="text" name="name" id="name"
+                    [(ngModel)]="userService.selectedUser.name" placeholder="Ingresa el nombre">
+            </div>
+            <div class="form-group">
+                <label for="birthdate">Fecha de nacimiento</label>
+                <input class="form-control" #birthdate="ngModel" type="date" name="birthdate" id="birthdate"
+                    [(ngModel)]="userService.selectedUser.birthdate">
+            </div>
+            <div class="form-group pl-3">
+                <label for="">Sexo</label><br>
+                <input class="form-check-input" #genre="ngModel" type="radio" name="genre" id="genreM"
+                    [(ngModel)]="userService.selectedUser.genre" value="M" placeholder="Masculino">
+                <label class="form-check-label" for="genreM">Masculino</label> <br>
+                <input class="form-check-input" #genre="ngModel" type="radio" name="genre" id="genreF"
+                    [(ngModel)]="userService.selectedUser.genre" value="F" placeholder="Femenino">
+                <label class="form-check-label" for="genreF">Femenino</label>
+            </div>
+            <div class="form-group pl-3">
+                <label for="">Tipo</label><br>
+                <select name="type" id="type" #type="ngModel" [(ngModel)]="userService.selectedUser.type">
+                    <option value="Normal">Normal</option>
+                    <option value="Estudiante">Estudiante</option>
+                    <option value="TerceraEdad">Tercera Edad</option>
+                </select>
+                <!-- <input class="form-check-input" #student="ngModel" type="" name="student" id="studentS"
+                    [(ngModel)]="userService.selectedUser.student" value="Si">
+                <label class="form-check-label" for="studentS">Si</label> <br>
+                <input class="form-check-input" #student="ngModel" type="radio" name="student" id="studentN"
+                    [(ngModel)]="userService.selectedUser.student" value="No">
+                <label class="form-check-label" for="studentN">No</label> -->
+            </div>
+            <!-- <div class="form-group pl-3">
+                <label for="">Tercera Edad</label><br>
+                <input class="form-check-input" #older="ngModel" type="radio" name="older" id="olderS"
+                    [(ngModel)]="userService.selectedUser.older" value="Si">
+                <label class="form-check-label" for="olderS">Si</label> <br>
+                <input class="form-check-input" #older="ngModel" type="radio" name="older" id="olderN"
+                    [(ngModel)]="userService.selectedUser.older" value="No">
+                <label class="form-check-label" for="olderN">No</label>
+            </div> -->
+            <!-- <div class="form-group">
+                    <label for="balance">Saldo</label>
+                <input class="form-control" #balance="ngModel" type="number" value="0" name="balance" id="balance"
+                    [(ngModel)]="userService.selectedUser.balance" placeholder="0" disabled >
+            </div> -->
+
+            <div class="form-group">
+                <label for="email">Correo electrónico</label>
+                <input class="form-control" #email="ngModel" type="email" name="email" id="email"
+                    [(ngModel)]="userService.selectedUser.email">
+            </div>
+
+            <div class="form-group">
+                <label for="password">Contraseña</label>
+                <input class="form-control" #password="ngModel" type="password" name="password" id="password"
+                    [(ngModel)]="userService.selectedUser.password">
+            </div>
+            <div class="form-group">
+                <button class="btn btn-lg btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i> Registrar
+                </button>
+                <!-- <button class="btn btn-secondary" type="reset" (click)="resetForm(newUserForm)">
+                    <i class="fas fa-sync-alt"></i> Reinciar
+                </button> -->
+            </div>
+        </form>
+    </div>
+</div>

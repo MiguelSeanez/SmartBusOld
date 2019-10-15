@@ -1,0 +1,41 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <h2 class="text-center">Agregar Paradas</h2>
+        <form #stopForm="ngForm" (ngSubmit)='onSubmit(stopForm)'>
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="stopService.selectedStop.$key">
+            <div class="form-group">
+                <label for="route">Ruta</label>
+                <select >
+                    <option *ngFor="let routes of routeList" value="{{routes.route}}" 
+                    #route="ngModel" type="text" name="route" id="route"
+                    [(ngModel)]="stopService.selectedStop.route">{{routes.route}}</option>
+                </select>
+            </div>
+             <div class="form-group">
+                <label for="name">Nombre de la parada</label>
+                <input class="form-control" #name="ngModel" type="text" name="name" id="name"
+                    [(ngModel)]="stopService.selectedStop.name">
+            </div>
+
+            <div class="form-group">
+                    <label for="latitude">Latitud</label>
+                <input class="form-control" #latitude="ngModel" type="text" name="latitude" id="latitude"
+                    [(ngModel)]="stopService.selectedStop.latitude" >
+            </div> 
+            <div class="form-group">
+                <label for="lognitude">Longitud</label>
+            <input class="form-control" #lognitude="ngModel" type="text" name="lognitude" id="lognitude"
+                [(ngModel)]="stopService.selectedStop.lognitude" >
+        </div> 
+
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i> Agregar
+                </button>
+                <button class="btn btn-secondary" type="reset" (click)="resetForm(stopForm)">
+                    <i class="fas fa-sync-alt"></i> Reinciar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,47 @@
+<div class="card mt-5">
+    <div class="card-body">
+        <form #newRouteForm="ngForm" (ngSubmit)='onSubmit(newRouteForm)'>
+            <input type="hidden" name="$key" #$key="ngModel" [(ngModel)]="routeService.selectedRoute.$key">
+            <div class="form-group">
+                <label for="route">Numero de ruta</label>
+                <input class="form-control" #route="ngModel" type="text" name="route" id="route"
+                    [(ngModel)]="routeService.selectedRoute.route" placeholder="Ingresa la ruta">
+            </div>
+            
+            <div class="form-group">
+                <button class="btn btn-primary" type="submit">
+                    <i class="fas fa-plus-circle"></i> Agregar
+                </button>
+                <button class="btn btn-secondary" type="reset" (click)="resetForm(newRouteForm)">
+                    <i class="fas fa-sync-alt"></i> Reinciar
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="card">
+    <div class="card-body pt-5">
+        <h3 class="text-center">Lista de Rutas</h3>
+        <table class="table table-md table-hover">
+            <tbody>
+                <tr>
+                    <th>Ruta</th>
+                    <th>No. unidades</th>
+                    <th>Editar</th>
+                    <th>Eliminar</th>
+                </tr>
+                <tr *ngFor="let routes of routeList">
+                    <td>{{routes.route}}</td>
+                    <td></td>
+                    <td><a class="btn btn-warning text-white" (click)="onEdit(routes)">
+                            <i class="far fa-edit"></i>
+                        </a></td>
+                    <td><a class="btn btn-danger text-white" (click)="onDelete(routes.$key)">
+                            <i class="fas fa-trash-alt"></i>
+                        </a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

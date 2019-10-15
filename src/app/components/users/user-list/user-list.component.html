@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-7">
+            <div class="card">
+                <div class="card-body pt-5">
+                    <h3 class="text-center">Lista de usuarios</h3>
+                    <table class="table table-md table-hover">
+                        <tbody>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Fecha de Nacimiento</th>
+                                <th>Tipo de usuario</th>
+                                <!-- <th>Tercera edad?</th> -->
+                                <th>Saldo</th>
+                                <th>Editar</th>
+                                <th>Eliminar</th>
+                            </tr>
+                            <tr *ngFor="let user of userList">
+                                <td>{{user.name}}</td>
+                                <td>{{user.birthdate}}</td>
+                                <td>{{user.type}}</td>
+                                <!-- <td>{{user.older}}</td> -->
+                                <td>{{user.balance}}</td>
+                                <td><a class="btn btn-warning text-white" (click)="onEdit(user)">
+                                        <i class="far fa-edit"></i>
+                                    </a></td>
+                                <td><a class="btn btn-danger text-white" (click)="onDelete(user.$key)">
+                                        <i class="fas fa-trash-alt"></i>
+                                    </a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-5">
+            <br><br>
+            <h4>Zona de edicion</h4>
+            <app-new-user></app-new-user>
+        </div>
+    </div>
+</div>
